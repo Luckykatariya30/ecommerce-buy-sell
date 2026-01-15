@@ -1,0 +1,7 @@
+{% autoescape off %} 
+
+Hi{{user.username}}
+Please Check This Link below to veryfi your account.
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

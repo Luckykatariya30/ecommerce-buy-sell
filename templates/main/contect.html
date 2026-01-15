@@ -1,0 +1,77 @@
+{% extends "main/base.html" %}
+{% block title %}Contect{% endblock title %} 
+{% block body %}
+<h1 class="text-center">Contact Us</h1>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="form-group" bg-light>
+        {% comment %} {% for message in messages %}
+        <div
+          class="alert alert-{{message.tags}} form-group alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{{message}}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %} {% endcomment %}
+
+        <form action="/contect/" method="post" {% csrf_token %}>
+          <label for="name">Full Name:</label>
+          <div class="form-group">
+            <input
+              class="form-group"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+
+          <label for="email">Email:</label>
+          <div class="form-group">
+            <input
+              class="form-group"
+              type="email"
+              id="email"
+              name="email"
+              value="{{user.username}}"
+              required
+            />
+          </div>
+
+          <label for="num">Phone Number:</label>
+          <div class="form-group">
+            <input
+              class="form-group"
+              type="number"
+              id="num"
+              name="number"
+              required
+            />
+          </div>
+
+          <label for="desc">Desc:</label>
+          <div class="form-group">
+            <textarea
+              class="form-group"
+              type="text"
+              id="desc"
+              name="desc"
+              required
+            ></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+{% endblock body %}
